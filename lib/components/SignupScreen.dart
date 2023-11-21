@@ -36,128 +36,165 @@ class _SignUpScreenState extends State<SignUpScreen> {
         });
   }
 
+   bool _isPasswordVisible = false;
+
+  void _togglePasswordVisibility() {
+    setState(() {
+      _isPasswordVisible = !_isPasswordVisible;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Sign Up'),
-      ),
-      body: Container(
-        child: SingleChildScrollView(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: <Widget>[
-              // Container(
-              // ),
-                    
-              Padding(
-                padding: const EdgeInsets.all(20),
-                child: Column(
-                  children: [
-                    Container(
-                      margin: const EdgeInsets.only(bottom: 10), // Margen inferior para "Nombres"
-                      child: TextFormField(
-                        controller: cntNombre,
-                        decoration: InputDecoration(
-                          labelText: "Nombres",
-                          prefixIcon: Icon(Icons.person),
-                          border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(20),
-                          ),
-                          filled: true,
-                          fillColor: Colors.grey[200],
-                          floatingLabelBehavior: FloatingLabelBehavior.never,
-                        ),
-                        style: const TextStyle(
-                          color: Colors.black,
-                          fontSize: 16,
-                        ),
-                      ),
-                    ),
-                    
-                    Container(
-                      margin: const EdgeInsets.only(bottom: 10), // Margen inferior para "Precio"
-                      child: TextFormField(
-                        controller: cntApellido,
-                        decoration: InputDecoration(
-                          labelText: "Apellido",
-                          prefixIcon: Icon(Icons.person),
-                          border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(20),
-                          ),
-                          filled: true,
-                          fillColor: Colors.grey[200],
-                          floatingLabelBehavior: FloatingLabelBehavior.never,
-                        ),
-                        style: const TextStyle(
-                          color: Colors.black,
-                          fontSize: 16,
-                        ),
-                      ),
-                    ),
-
-                    Container(
-                      margin: const EdgeInsets.only(bottom: 10),
-                      child: TextFormField(
-                        controller: cntCorreo,
-                        decoration: InputDecoration(
-                          labelText: "E-mail",
-                          prefixIcon: Icon(Icons.description),
-                          border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(20),
-                          ),
-                          filled: true,
-                          fillColor: Colors.grey[200],
-                          floatingLabelBehavior: FloatingLabelBehavior.never,
-                        ),
-                        style: const TextStyle(
-                          color: Colors.black,
-                          fontSize: 16,
-                        ),
-                      ),
-                    ),
-                    Container(
-                      margin: const EdgeInsets.only(bottom: 10),
-                      child: TextFormField(
-                        controller: cntPass,
-                        decoration: InputDecoration(
-                          labelText: "Password",
-                          prefixIcon: Icon(Icons.description),
-                          border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(20),
-                          ),
-                          filled: true,
-                          fillColor: Colors.grey[200],
-                          floatingLabelBehavior: FloatingLabelBehavior.never,
-                        ),
-                        style: const TextStyle(
-                          color: Colors.black,
-                          fontSize: 16,
-                        ),
-                      ),
-                    ),
-                    
-                    const SizedBox(height: 20),
-                    ElevatedButton(
-                      onPressed: () {
-                        registrar(context);
-                      },
-                      child: const Text("Registrar"),
-                      style: ElevatedButton.styleFrom(
-                        padding: const EdgeInsets.all(15),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(20),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ],
+  body: Stack(
+    children: [
+      Container(
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.centerLeft,
+            end: Alignment.centerRight,
+            colors: [Colors.pinkAccent, Colors.blueAccent],
           ),
         ),
       ),
-    );
+      SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: <Widget>[
+            SizedBox(height: 50.0),
+            Text(
+              'Sign Up',
+              style: TextStyle(fontSize: 24.0, color: Colors.white),
+              textAlign: TextAlign.center,
+            ),
+            SizedBox(height: 20),
+            Padding(
+              padding: const EdgeInsets.all(20),
+              child: Column(
+                children: [
+                  Container(
+                    margin: const EdgeInsets.only(bottom: 10),
+                    child: TextFormField(
+                      controller: cntNombre,
+                      decoration: InputDecoration(
+                        labelText: "Nombres",
+                        prefixIcon: Icon(Icons.person),
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(20),
+                        ),
+                        filled: true,
+                        fillColor: Colors.grey.shade600,
+                        floatingLabelBehavior: FloatingLabelBehavior.never,
+                        labelStyle: TextStyle(color: Colors.white),
+                      ),
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 16,
+                      ),
+                    ),
+                  ),
+                  Container(
+                    margin: const EdgeInsets.only(bottom: 10),
+                    child: TextFormField(
+                      controller: cntApellido,
+                      decoration: InputDecoration(
+                        labelText: "Apellido",
+                        prefixIcon: Icon(Icons.person),
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(20),
+                        ),
+                        filled: true,
+                        fillColor: Colors.grey.shade600,
+                        floatingLabelBehavior: FloatingLabelBehavior.never,
+                        labelStyle: TextStyle(color: Colors.white),
+                      ),
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 16,
+                      ),
+                    ),
+                  ),
+                  Container(
+                    margin: const EdgeInsets.only(bottom: 10),
+                    child: TextFormField(
+                      controller: cntCorreo,
+                      decoration: InputDecoration(
+                        labelText: "E-mail",
+                        prefixIcon: Icon(Icons.mail),
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(20),
+                        ),
+                        filled: true,
+                        fillColor: Colors.grey.shade600,
+                        floatingLabelBehavior: FloatingLabelBehavior.never,
+                        labelStyle: TextStyle(color: Colors.white),
+                      ),
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 16,
+                      ),
+                    ),
+                  ),
+                  Container(
+                    margin: const EdgeInsets.only(bottom: 10),
+                    child: TextFormField(
+                      controller: cntPass,
+                      decoration: InputDecoration(
+                        labelText: "Password",
+                        prefixIcon: Icon(Icons.lock),
+                        suffixIcon: IconButton(
+                          onPressed: () {
+                            setState(() {
+                              _isPasswordVisible = !_isPasswordVisible;
+                            });
+                          },
+                          icon: Icon(
+                            _isPasswordVisible
+                                ? Icons.visibility
+                                : Icons.visibility_off,
+                            color: Colors.grey[400],
+                          ),
+                        ),
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(20),
+                        ),
+                        filled: true,
+                        fillColor: Colors.grey.shade600,
+                        floatingLabelBehavior: FloatingLabelBehavior.never,
+                        labelStyle: TextStyle(color: Colors.white),
+                      ),
+                      obscureText: !_isPasswordVisible,
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 16,
+                      ),
+                    ),
+                  ),
+                  SizedBox(height: 20),
+                  ElevatedButton(
+                    onPressed: () {
+                      registrar(context);
+                    },
+                    child: const Text("Registrar"),
+                    style: ElevatedButton.styleFrom(
+                      padding: const EdgeInsets.all(15),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(20),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
+      ),
+    ],
+  ),
+);
+
+
   }
 
 Future<void> registrar(context) async {
@@ -178,8 +215,8 @@ Future<void> registrar(context) async {
     body: {
       "nombre": cntNombre.text,
       "apellido": cntApellido.text,
-      "correo": cntCorreo.text,
-      "password":cntPass.text
+      "email": cntCorreo.text,
+      "u_password":cntPass.text
     },
   );
   final r = json.decode(respuesta.body);
