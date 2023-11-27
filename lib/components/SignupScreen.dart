@@ -54,140 +54,139 @@ class _SignUpScreenState extends State<SignUpScreen> {
           gradient: LinearGradient(
             begin: Alignment.centerLeft,
             end: Alignment.centerRight,
-            colors: [Colors.pinkAccent, Colors.blueAccent],
+            colors: [Colors.white, Colors.purple.shade200],
           ),
         ),
       ),
-      SingleChildScrollView(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: <Widget>[
-            SizedBox(height: 50.0),
-            Text(
-              'Sign Up',
-              style: TextStyle(fontSize: 24.0, color: Colors.white),
-              textAlign: TextAlign.center,
+      Center(
+        child: FractionallySizedBox(
+          widthFactor: 0.5,
+          child: Container(
+            padding: const EdgeInsets.all(20.0),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(20.0),
+              color: Colors.white,
             ),
-            SizedBox(height: 20),
-            Padding(
-              padding: const EdgeInsets.all(20),
-              child: Column(
-                children: [
-                  Container(
-                    margin: const EdgeInsets.only(bottom: 10),
-                    child: TextFormField(
-                      controller: cntNombre,
-                      decoration: InputDecoration(
-                        labelText: "Nombres",
-                        prefixIcon: Icon(Icons.person),
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(20),
-                        ),
-                        filled: true,
-                        fillColor: Colors.grey.shade600,
-                        floatingLabelBehavior: FloatingLabelBehavior.never,
-                        labelStyle: TextStyle(color: Colors.white),
+            child: Row(
+              children: [
+                Expanded(
+                  flex: 1,
+                  child: Container(
+                    decoration: BoxDecoration(
+                      gradient: LinearGradient(
+                        begin: Alignment.topLeft,
+                        end: Alignment.bottomRight,
+                        colors: [Colors.blueAccent, Colors.lightBlueAccent],
                       ),
-                      style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 16,
+                      borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(20.0),
+                        bottomLeft: Radius.circular(20.0),
                       ),
                     ),
-                  ),
-                  Container(
-                    margin: const EdgeInsets.only(bottom: 10),
-                    child: TextFormField(
-                      controller: cntApellido,
-                      decoration: InputDecoration(
-                        labelText: "Apellido",
-                        prefixIcon: Icon(Icons.person),
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(20),
-                        ),
-                        filled: true,
-                        fillColor: Colors.grey.shade600,
-                        floatingLabelBehavior: FloatingLabelBehavior.never,
-                        labelStyle: TextStyle(color: Colors.white),
-                      ),
-                      style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 16,
-                      ),
-                    ),
-                  ),
-                  Container(
-                    margin: const EdgeInsets.only(bottom: 10),
-                    child: TextFormField(
-                      controller: cntCorreo,
-                      decoration: InputDecoration(
-                        labelText: "E-mail",
-                        prefixIcon: Icon(Icons.mail),
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(20),
-                        ),
-                        filled: true,
-                        fillColor: Colors.grey.shade600,
-                        floatingLabelBehavior: FloatingLabelBehavior.never,
-                        labelStyle: TextStyle(color: Colors.white),
-                      ),
-                      style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 16,
-                      ),
-                    ),
-                  ),
-                  Container(
-                    margin: const EdgeInsets.only(bottom: 10),
-                    child: TextFormField(
-                      controller: cntPass,
-                      decoration: InputDecoration(
-                        labelText: "Password",
-                        prefixIcon: Icon(Icons.lock),
-                        suffixIcon: IconButton(
-                          onPressed: () {
-                            setState(() {
-                              _isPasswordVisible = !_isPasswordVisible;
-                            });
-                          },
-                          icon: Icon(
-                            _isPasswordVisible
-                                ? Icons.visibility
-                                : Icons.visibility_off,
-                            color: Colors.grey[400],
+                    child: Center(
+                      child: Container(
+                        width: 80.0,
+                        height: 80.0,
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          gradient: RadialGradient(
+                            colors: [Colors.white, Colors.purple.shade200],
+                            radius: 0.8,
                           ),
                         ),
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(20),
+                      ),
+                    ),
+                  ),
+                ),
+                Expanded(
+                  flex: 1,
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        TextField(
+                          controller: cntNombre,
+                          style: TextStyle(color: Colors.black),
+                          decoration: InputDecoration(
+                            labelText: 'Nombre',
+                            labelStyle: TextStyle(color: Colors.black),
+                            border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(20),
+                            ),
+                            contentPadding: EdgeInsets.all(12.0),
+                          ),
                         ),
-                        filled: true,
-                        fillColor: Colors.grey.shade600,
-                        floatingLabelBehavior: FloatingLabelBehavior.never,
-                        labelStyle: TextStyle(color: Colors.white),
-                      ),
-                      obscureText: !_isPasswordVisible,
-                      style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 16,
-                      ),
+                        SizedBox(height: 16.0),
+                        TextField(
+                          controller: cntApellido,
+                          style: TextStyle(color: Colors.black),
+                          decoration: InputDecoration(
+                            labelText: 'Apellido',
+                            labelStyle: TextStyle(color: Colors.black),
+                            border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(20),
+                            ),
+                            contentPadding: EdgeInsets.all(12.0),
+                          ),
+                        ),
+                        SizedBox(height: 16.0),
+                        TextField(
+                          controller: cntCorreo,
+                          style: TextStyle(color: Colors.black),
+                          decoration: InputDecoration(
+                            labelText: 'E-mail',
+                            labelStyle: TextStyle(color: Colors.black),
+                            border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(20),
+                            ),
+                            contentPadding: EdgeInsets.all(12.0),
+                          ),
+                        ),
+                        SizedBox(height: 16.0),
+                        TextField(
+                          controller: cntPass,
+                          style: TextStyle(color: Colors.black),
+                          decoration: InputDecoration(
+                            labelText: 'Password',
+                            labelStyle: TextStyle(color: Colors.black),
+                            border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(20),
+                            ),
+                            contentPadding: EdgeInsets.all(12.0),
+                            suffixIcon: IconButton(
+                              onPressed: () {
+                                setState(() {
+                                  _isPasswordVisible = !_isPasswordVisible;
+                                });
+                              },
+                              icon: Icon(
+                                _isPasswordVisible
+                                    ? Icons.visibility
+                                    : Icons.visibility_off,
+                                color: Colors.black,
+                              ),
+                            ),
+                          ),
+                          obscureText: !_isPasswordVisible,
+                        ),
+                        SizedBox(height: 10),
+                        ElevatedButton(
+                          onPressed: () {
+                            registrar(context);
+                          },
+                          child: Text('Sign Up'),
+                          style: ElevatedButton.styleFrom(
+                            primary: Colors.green.shade200,
+                          ),
+                        ),
+                      ],
                     ),
                   ),
-                  SizedBox(height: 20),
-                  ElevatedButton(
-                    onPressed: () {
-                      registrar(context);
-                    },
-                    child: const Text("Registrar"),
-                    style: ElevatedButton.styleFrom(
-                      padding: const EdgeInsets.all(15),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(20),
-                      ),
-                    ),
-                  ),
-                ],
-              ),
+                ),
+              ],
             ),
-          ],
+          ),
         ),
       ),
     ],

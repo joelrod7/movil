@@ -25,8 +25,9 @@ class MyApp extends StatelessWidget {
       routes: {
          '/login': (context) => LoginScreen(),
          '/signup': (context) => SignUpScreen(),
-        
-        //'/eliminar':(context) => Principal(),
+        '/': (context) => admPrograma(),
+        '/Registro': (context) => Registrar(),
+         '/Editar':(context) => Editar(),
       },
     );
   }
